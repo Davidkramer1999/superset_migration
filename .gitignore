@@ -1,2 +1,3 @@
 .env
 record.log
+__pycache__
