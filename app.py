@@ -27,15 +27,8 @@ if export_response.status_code == 200:
     prod_password = os.getenv("PROD_PASSWORD")
     prod_auth_method = os.getenv("PROD_AUTH_METHOD")
 
-    access_token_production, csrf_token =authentication.authenticate_prod(prod_url, prod_username, prod_password, prod_auth_method)
+    access_token_production =authentication.authenticate_prod(prod_url, prod_username, prod_password, prod_auth_method)
 
-    print(f"Access Token Production: {access_token_production}")
-    print(f"Csrf token Production: {csrf_token}")
-    # csrf_token = authenticate_prod(prod_url, prod_username, prod_password,prod_auth_method)
-    
-    # print(f"CSRF Token: {csrf_token}")
-
-    # Import dashboard prod
-    import_dashboard.import_dashboard(prod_url, access_token_production, "dashboard_export.zip", csrf_token)
+    import_dashboard.import_dashboard(prod_url, access_token_production, "dashboard_export.zip")
 else:
     print(f"Export failed with status code {export_response.status_code}. Import will not be executed.")
