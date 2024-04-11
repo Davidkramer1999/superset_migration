@@ -1,5 +1,6 @@
 import requests
 
+
 def import_dashboard(base_url, access_token, file_to_import):
     import_url = f"{base_url}/api/v1/dashboard/import"
     import_headers = {
