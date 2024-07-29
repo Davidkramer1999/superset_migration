@@ -14,14 +14,13 @@ dev_password = os.getenv("DEV_PASSWORD")
 dev_auth_method = os.getenv("DEV_AUTH_METHOD")
 
 access_token = authentication.authenticate_prod(dev_url, dev_username, dev_password, dev_auth_method)
-
 # id of the dashboard to export
-export_dashboard_id = 7
+export_dashboard_id = 6
 # Export dashboard dev
 export_response = export_dashboard.export_dashboard(dev_url, access_token, export_dashboard_id)
 
 if export_response.status_code == 200:
-# Authenticate for import prod
+    # Authenticate for import prod
     prod_url = os.getenv("SUP_RESET_URL_PROD")
     prod_username = os.getenv("PROD_USERNAME")
     prod_password = os.getenv("PROD_PASSWORD")
@@ -31,4 +30,4 @@ if export_response.status_code == 200:
 
     import_dashboard.import_dashboard(prod_url, access_token_production, "dashboard_export.zip")
 else:
-        print(f"Export failed with status code {export_response.status_code}. Import will not be executed.")
+    print(f"Export failed with status code {export_response.status_code}. Import will not be executed.")

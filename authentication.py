@@ -17,4 +17,3 @@ def authenticate_prod(base_url, username, password, provider):
             print(f"Login failed, status code: {login_response.status_code}")
             return None
 
-
