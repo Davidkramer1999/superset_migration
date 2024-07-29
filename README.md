@@ -48,3 +48,6 @@ To run the script from the command line, execute:
 ```sh
 python main.py
 ```
+
+## Config
+I have included the configuration file used for deploying Superset v3! with Docker. Please note that certain flags are enabled or disabled, which may affect the migration process
